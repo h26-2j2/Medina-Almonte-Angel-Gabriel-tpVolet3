@@ -5,11 +5,13 @@ TagManager:
   serializedVersion: 3
   tags:
   - bouton
+  - Shuriken
+  - Sol
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Sol
   - Water
   - UI
   - 

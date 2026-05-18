@@ -367,8 +367,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -126.5, y: -81}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: -208, y: -81}
+  m_SizeDelta: {x: 62.2521, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &250139849
 MonoBehaviour:
@@ -424,7 +424,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -504,7 +504,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 187, y: -80}
+  m_AnchoredPosition: {x: 177, y: -80}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &425108412
@@ -561,7 +561,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -593,7 +593,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: 139.00044, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -617,9 +617,9 @@ GameObject:
   m_Component:
   - component: {fileID: 581680871}
   - component: {fileID: 581680870}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: sol
-  m_TagString: Untagged
+  m_TagString: Sol
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -716,9 +716,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::jeu
   texteQuestion: {fileID: 1278590683}
   feedbackOverlay: {fileID: 40986409}
-  bulleGauche: {fileID: 1360086345}
-  bulleCentre: {fileID: 1199392753}
-  bulleDroite: {fileID: 733553838}
+  boitesReponses:
+  - {fileID: 1360086345}
+  - {fileID: 1199392753}
+  - {fileID: 733553838}
   sourceAudio: {fileID: 705446505}
   sonCorrect: {fileID: 8300000, guid: 733c48b39c07284439d454f5fba4037f, type: 3}
   sonErreur: {fileID: 8300000, guid: 83eb55a5005318148a549dc4dca0a90c, type: 3}
@@ -1235,6 +1236,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::reponsePossible
   texteAffichage: {fileID: 250139849}
+  valeurAssignee: 0
 --- !u!1 &747078151
 GameObject:
   m_ObjectHideFlags: 0
@@ -1437,7 +1439,7 @@ Transform:
   m_GameObject: {fileID: 807085405}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.0119495, y: -0.93416, z: 0}
+  m_LocalPosition: {x: -5.0119495, y: -1.02, z: 0}
   m_LocalScale: {x: 3.2103438, y: 3.2103438, z: 3.2103438}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1611,11 +1613,32 @@ MonoBehaviour:
       m_Action: Action Appuyer
       m_Flags: 0
     m_Flags: 0
+  actionTirer:
+    m_Name: Action Tirer
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 6b9efb3c-d7a0-479d-b04b-17e2b1522271
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
   vitesseDeplacement: 5
   forceSaut: 5
+  delaiTirMin: 1
+  tempsEntreTir: 0
+  prefabProjectile: {fileID: 0}
+  positionProjectile: {fileID: 0}
+  directionProjectile: 0
+  vitesseProjectile: 0
   estAuSol: 0
+  detecteurSol: {fileID: 581680871}
+  rayonDetection: 0.2
+  layerSol:
+    serializedVersion: 2
+    m_Bits: 8
   sourceAudio: {fileID: 705446505}
   sonBouton: {fileID: 8300000, guid: 0c0afd4923e844c4cba2c3ac757d83bc, type: 3}
+  sonLanceShuriken: {fileID: 0}
 --- !u!95 &807085411
 Animator:
   serializedVersion: 7
@@ -2197,6 +2220,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::reponsePossible
   texteAffichage: {fileID: 1895547413}
+  valeurAssignee: 0
 --- !u!1 &1219091222
 GameObject:
   m_ObjectHideFlags: 0
@@ -2681,6 +2705,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::reponsePossible
   texteAffichage: {fileID: 425108412}
+  valeurAssignee: 0
 --- !u!1 &1364204475
 GameObject:
   m_ObjectHideFlags: 0
@@ -3200,7 +3225,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 76.39, y: -81}
+  m_AnchoredPosition: {x: 63, y: -81}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1895547413
@@ -3257,7 +3282,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -3289,7 +3314,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: 142.75795, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
