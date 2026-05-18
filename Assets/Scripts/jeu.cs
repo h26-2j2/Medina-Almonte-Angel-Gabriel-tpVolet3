@@ -124,8 +124,8 @@ public class jeu : MonoBehaviour
             {
                 niveauTermine = true;
                 sourceAudio.PlayOneShot(SonFinJeu);
-                tempsAvantMenu = 6.0f;
-                feedbackOverlay.color = new Color(0, 1, 0, 0.8f);
+                tempsAvantMenu = 5.0f;
+               
             }
             else
             {

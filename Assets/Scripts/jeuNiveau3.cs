@@ -149,8 +149,8 @@ public class jeuNiveau3 : MonoBehaviour
             {
                 niveauTermine = true;
                 if (sourceAudio != null && SonFinJeu != null) sourceAudio.PlayOneShot(SonFinJeu);
-                tempsAvantMenu = 4.0f;
-                if (feedbackOverlay != null) feedbackOverlay.color = new Color(0, 1, 0, 0.8f);
+                tempsAvantMenu = 11.0f;
+                
             }
             else
             {
