@@ -4332,7 +4332,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 110
+  Priority: 128
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -5371,14 +5371,6 @@ MonoBehaviour:
       m_Groups: 
       m_Action: Action Saut
       m_Flags: 4
-    - m_Name: negative
-      m_Id: 228fbeba-607c-4e77-bc31-91273080a42c
-      m_Path: <Keyboard>/s
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Action Saut
-      m_Flags: 8
     - m_Name: positive
       m_Id: 54f2507b-88fb-4bf1-b9f2-ee1e0c4c2095
       m_Path: <Keyboard>/w
