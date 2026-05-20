@@ -723,10 +723,10 @@ MonoBehaviour:
   sourceAudio: {fileID: 1031466915}
   sonCorrect: {fileID: 8300000, guid: 733c48b39c07284439d454f5fba4037f, type: 3}
   sonErreur: {fileID: 8300000, guid: 83eb55a5005318148a549dc4dca0a90c, type: 3}
-  sonDebutJeu: {fileID: 8300000, guid: 144607139d1a9df45953cdd24bf22ad0, type: 3}
+  sonDebutJeu: {fileID: 8300000, guid: 089ef64454b624240a4e11063f066d04, type: 3}
   SonCorrecteVoix: {fileID: 8300000, guid: df48d7b3dcbb44a41b895eff6100d518, type: 3}
   sonErreurVoix: {fileID: 8300000, guid: b7eaa69903dab5f498a1a1ecad7d326a, type: 3}
-  SonFinJeu: {fileID: 8300000, guid: 451c314e737aa564eb1303be28ef3e3f, type: 3}
+  SonFinJeu: {fileID: 8300000, guid: da173dfea6eac06409698cdd9545c804, type: 3}
   scoreReussi: 0
   scoreObjectif: 5
   reponseCorrecte: 0

@@ -724,8 +724,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -749,7 +749,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -811,7 +811,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 454, y: 72}
+  m_AnchoredPosition: {x: 449, y: 72}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &269694255
@@ -1105,17 +1105,17 @@ MonoBehaviour:
   - {fileID: 138245132}
   - {fileID: 1022152368}
   sourceAudio: {fileID: 567365962}
-  sonDebutJeu: {fileID: 8300000, guid: 5e175ca0981cdca499dd6f761d790981, type: 3}
+  sonDebutJeu: {fileID: 8300000, guid: 9500985c0c2356e4cadac58035b7ac7d, type: 3}
   sonCorrect: {fileID: 8300000, guid: 733c48b39c07284439d454f5fba4037f, type: 3}
   sonErreur: {fileID: 8300000, guid: 83eb55a5005318148a549dc4dca0a90c, type: 3}
-  SonFinJeu: {fileID: 8300000, guid: 0b4bdc6b5294cb943829e342767e92db, type: 3}
+  SonFinJeu: {fileID: 8300000, guid: 0e5a7f2d133d44048af8ed33bf8c5e29, type: 3}
   sonsCorrectsVoix:
   - {fileID: 8300000, guid: 862bcf72f512571499dbae64e09b8a64, type: 3}
   - {fileID: 8300000, guid: df48d7b3dcbb44a41b895eff6100d518, type: 3}
-  - {fileID: 8300000, guid: 25c8290df98da4740a2e5a21d4511717, type: 3}
+  - {fileID: 8300000, guid: 45d89d0cbc601bb46a1bda1b5118533b, type: 3}
   sonsErreursVoix:
-  - {fileID: 8300000, guid: d33f7ee63db58b74f9bafc916fb4ab8a, type: 3}
-  - {fileID: 8300000, guid: 5108eea4185f35c4eb2221d6881748ae, type: 3}
+  - {fileID: 8300000, guid: 131cd9ea2058e4e4bac1e55320a74757, type: 3}
+  - {fileID: 8300000, guid: 445655376813de64996ed52084f00582, type: 3}
   - {fileID: 8300000, guid: b7eaa69903dab5f498a1a1ecad7d326a, type: 3}
   scoreReussi: 0
   scoreObjectif: 6
@@ -2163,7 +2163,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.01
+  m_Intensity: 0.04
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
   m_ApplyToSortingLayers: 00000000
@@ -2483,7 +2483,7 @@ Transform:
   m_GameObject: {fileID: 1022152367}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -36.00473, y: -76.58748, z: 0}
+  m_LocalPosition: {x: -35.95, y: -76.68, z: 0}
   m_LocalScale: {x: 0.11256, y: 0.11256, z: 0.11256}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4140,8 +4140,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -4158,14 +4158,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
-  m_fontSizeBase: 50
+  m_fontSize: 48.5
+  m_fontSizeBase: 48.5
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -4227,7 +4227,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -371.01, y: -177}
+  m_AnchoredPosition: {x: -374.1, y: -174.3}
   m_SizeDelta: {x: 57.984, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1794460923
