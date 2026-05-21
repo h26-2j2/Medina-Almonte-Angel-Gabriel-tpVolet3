@@ -10,32 +10,34 @@ public class jeuNiveau3 : MonoBehaviour
     [Header("Element UI")]
     public TextMeshProUGUI texteQuestion;
     public Image feedbackOverlay;
+    public TextMeshProUGUI texteCompteur;
+    public GameObject movementInstruction;
 
     //tableau stockant l'ensemble des boîtes et boutons de réponses du niveau final
     [Header("Boites de Réponses (Boutons + Caisses)")]
-    public reponsePossible[] boitesReponses; 
+    public reponsePossible[] boitesReponses;
 
     //pistes audio pour les alertes sonores principales du jeu
     [Header("Audio (Sons fixes)")]
     public AudioSource sourceAudio;
     public AudioClip sonDebutJeu;
-    public AudioClip sonCorrect;  
-    public AudioClip sonErreur;    
+    public AudioClip sonCorrect;
+    public AudioClip sonErreur;
     public AudioClip SonFinJeu;
 
     //banques de sons pour jouer des messages vocaux aléatoires
     [Header("Audio Aléatoire (Voix)")]
-    public AudioClip[] sonsCorrectsVoix; 
-    public AudioClip[] sonsErreursVoix;   
+    public AudioClip[] sonsCorrectsVoix;
+    public AudioClip[] sonsErreursVoix;
 
     //suivi du score de l'élève et définition de l'objectif de fin de partie
     [Header("Score")]
     public int scoreReussi = 0;
-    public int scoreObjectif = 6; 
+    public int scoreObjectif = 6;
 
     //nom de la scène vers laquelle basculer une fois le jeu complètement terminé
     [Header("Fin de partie")]
-    public string nomSceneAccueil = "EcranTitre"; 
+    public string nomSceneAccueil = "EcranTitre";
 
     //compteurs de temps pour réguler les animations visuelles et les transitions
     private float tempsRestantFlash = 0f;
@@ -44,10 +46,11 @@ public class jeuNiveau3 : MonoBehaviour
 
     public int reponseCorrecte;
 
-    //initialisation de la question de départ et activation de l'ambiance sonore
+    //initialisation de la question de départ, du compteur et activation de l'ambiance sonore
     void Start()
     {
-        GenererQuestion(); 
+        GenererQuestion();
+        MettreAJourCompteur(); // affiche 0/6 dès le départ du niveau final
         if (sourceAudio != null && sonDebutJeu != null)
         {
             sourceAudio.PlayOneShot(sonDebutJeu);
@@ -74,19 +77,28 @@ public class jeuNiveau3 : MonoBehaviour
             tempsRestantFlash -= Time.deltaTime;
             if (tempsRestantFlash <= 0)
             {
-                if (feedbackOverlay != null) feedbackOverlay.color = new Color(0, 0, 0, 0); 
-                GenererQuestion(); 
+                if (feedbackOverlay != null) feedbackOverlay.color = new Color(0, 0, 0, 0);
+                GenererQuestion();
             }
+        }
+    }
+
+    //fonction simple pour rafraîchir le texte du compteur de progression finale
+    void MettreAJourCompteur()
+    {
+        if (texteCompteur != null)
+        {
+            texteCompteur.text = scoreReussi + " / " + scoreObjectif;
         }
     }
 
     //génération d'une nouvelle addition avec sélection et mélange des options numériques
     public void GenererQuestion()
     {
-        //réactivation globale des boîtes masquées lors de la question précédente
+        //réinitialisation globale des boîtes masquées lors de la question précédente
         foreach (reponsePossible boite in boitesReponses)
         {
-            if (boite != null) boite.RéinitialiserBoite(); 
+            if (boite != null) boite.RéinitialiserBoite();
         }
 
         //création des nombres de l'équation mathématique
@@ -116,10 +128,10 @@ public class jeuNiveau3 : MonoBehaviour
         {
             if (i < valeursReponses.Count && boitesReponses[i] != null)
             {
-                boitesReponses[i].valeurAssignee = valeursReponses[i]; 
+                boitesReponses[i].valeurAssignee = valeursReponses[i];
                 if (boitesReponses[i].texteAffichage != null)
                 {
-                    boitesReponses[i].texteAffichage.text = valeursReponses[i].ToString(); 
+                    boitesReponses[i].texteAffichage.text = valeursReponses[i].ToString();
                 }
             }
         }
@@ -134,7 +146,7 @@ public class jeuNiveau3 : MonoBehaviour
         if (valeurChoisie == reponseCorrecte)
         {
             if (sourceAudio != null && sonCorrect != null) sourceAudio.PlayOneShot(sonCorrect);
-            
+
             //tirage au sort d'un enregistrement vocal d'encouragement
             if (sonsCorrectsVoix != null && sonsCorrectsVoix.Length > 0 && sourceAudio != null)
             {
@@ -143,6 +155,7 @@ public class jeuNiveau3 : MonoBehaviour
             }
 
             scoreReussi++;
+            MettreAJourCompteur(); 
 
             //évaluation de la condition de réussite finale du jeu complet
             if (scoreReussi >= scoreObjectif)
@@ -150,7 +163,6 @@ public class jeuNiveau3 : MonoBehaviour
                 niveauTermine = true;
                 if (sourceAudio != null && SonFinJeu != null) sourceAudio.PlayOneShot(SonFinJeu);
                 tempsAvantMenu = 11.0f;
-                
             }
             else
             {
@@ -162,7 +174,7 @@ public class jeuNiveau3 : MonoBehaviour
         else
         {
             if (sourceAudio != null && sonErreur != null) sourceAudio.PlayOneShot(sonErreur);
-            
+
             //enregistrement vocal random indiquant une mauvaise réponse
             if (sonsErreursVoix != null && sonsErreursVoix.Length > 0 && sourceAudio != null)
             {

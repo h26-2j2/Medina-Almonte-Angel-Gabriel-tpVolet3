@@ -10,6 +10,7 @@ public class jeuNiveau2 : MonoBehaviour
     [Header("Element UI")]
     public TextMeshProUGUI texteQuestion;
     public Image feedbackOverlay;
+    public TextMeshProUGUI texteCompteur; 
 
     //tableau contenant toutes les boîtes de réponses du niveau
     [Header("Boites de Réponses (Array)")]
@@ -40,11 +41,15 @@ public class jeuNiveau2 : MonoBehaviour
 
     public int reponseCorrecte;
 
-    //lancement de la première équation et du son d'ambiance au départ
+    //lancement de la première équation, du compteur et du son d'ambiance au départ
     void Start()
     {
         GenererQuestion();
-        sourceAudio.PlayOneShot(sonDebutJeu);
+        MettreAJourCompteur(); // affiche 0/5 dès le départ du niveau 2
+        if (sourceAudio != null && sonDebutJeu != null)
+        {
+            sourceAudio.PlayOneShot(sonDebutJeu);
+        }
     }
 
     //mise à jour des chronomètres et chargement du niveau suivant
@@ -67,9 +72,18 @@ public class jeuNiveau2 : MonoBehaviour
             tempsRestantFlash -= Time.deltaTime;
             if (tempsRestantFlash <= 0)
             {
-                feedbackOverlay.color = new Color(0, 0, 0, 0);
+                if (feedbackOverlay != null) feedbackOverlay.color = new Color(0, 0, 0, 0);
                 GenererQuestion();
             }
+        }
+    }
+
+    //fonction simple pour rafraîchir le texte du compteur de progression
+    void MettreAJourCompteur()
+    {
+        if (texteCompteur != null)
+        {
+            texteCompteur.text = scoreReussi + " / " + scoreObjectif;
         }
     }
 
@@ -85,11 +99,11 @@ public class jeuNiveau2 : MonoBehaviour
             }
         }
 
-        // calcul des nombres et de la bonne réponse
+        //calcul des nombres et de la bonne réponse
         int a = Random.Range(1, 10);
         int b = Random.Range(1, 10);
         reponseCorrecte = a + b;
-        texteQuestion.text = a + " + " + b + " = ?";
+        if (texteQuestion != null) texteQuestion.text = a + " + " + b + " = ?";
 
         //création d'une liste contenant la bonne réponse et trois fausses options
         List<int> valeursReponses = new List<int>();
@@ -110,10 +124,13 @@ public class jeuNiveau2 : MonoBehaviour
         //attribution finale des valeurs mélangées aux composants de nos boîtes
         for (int i = 0; i < boitesReponses.Length; i++)
         {
-            if (i < valeursReponses.Count)
+            if (i < valeursReponses.Count && boitesReponses[i] != null)
             {
                 boitesReponses[i].valeurAssignee = valeursReponses[i];
-                boitesReponses[i].texteAffichage.text = valeursReponses[i].ToString();
+                if (boitesReponses[i].texteAffichage != null)
+                {
+                    boitesReponses[i].texteAffichage.text = valeursReponses[i].ToString();
+                }
             }
         }
     }
@@ -128,44 +145,44 @@ public class jeuNiveau2 : MonoBehaviour
         //actions effectuées si le joueur donne le bon résultat
         if (valeurChoisie == reponseCorrecte)
         {
-            sourceAudio.PlayOneShot(sonCorrect);
+            if (sourceAudio != null && sonCorrect != null) sourceAudio.PlayOneShot(sonCorrect);
 
             //sélection et lecture d'une voix de félicitation aléatoire
-            if (sonsCorrectsVoix != null && sonsCorrectsVoix.Length > 0)
+            if (sonsCorrectsVoix != null && sonsCorrectsVoix.Length > 0 && sourceAudio != null)
             {
                 int indexAleatoire = Random.Range(0, sonsCorrectsVoix.Length);
                 sourceAudio.PlayOneShot(sonsCorrectsVoix[indexAleatoire]);
             }
 
             scoreReussi++;
+            MettreAJourCompteur();
 
             //validation de la réussite totale du niveau
             if (scoreReussi >= scoreObjectif)
             {
                 niveauTermine = true;
-                sourceAudio.PlayOneShot(SonFinJeu);
+                if (sourceAudio != null && SonFinJeu != null) sourceAudio.PlayOneShot(SonFinJeu);
                 tempsAvantMenu = 5.0f;
-                
             }
             else
             {
-                feedbackOverlay.color = new Color(0, 1, 0, 0.5f);
+                if (feedbackOverlay != null) feedbackOverlay.color = new Color(0, 1, 0, 0.5f);
                 tempsRestantFlash = 1.0f;
             }
         }
         //actions effectuées si la réponse est incorrecte
         else
         {
-            sourceAudio.PlayOneShot(sonErreur);
+            if (sourceAudio != null && sonErreur != null) sourceAudio.PlayOneShot(sonErreur);
 
             //sélection et lecture d'une voix d'erreur aléatoire
-            if (sonsErreursVoix != null && sonsErreursVoix.Length > 0)
+            if (sonsErreursVoix != null && sonsErreursVoix.Length > 0 && sourceAudio != null)
             {
                 int indexAleatoire = Random.Range(0, sonsErreursVoix.Length);
                 sourceAudio.PlayOneShot(sonsErreursVoix[indexAleatoire]);
             }
 
-            feedbackOverlay.color = new Color(1, 0, 0, 0.5f);
+            if (feedbackOverlay != null) feedbackOverlay.color = new Color(1, 0, 0, 0.5f);
             tempsRestantFlash = 1.0f;
         }
     }
